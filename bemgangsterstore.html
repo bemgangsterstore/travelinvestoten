@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>𝕭𝖊𝖒 𝕲𝖆𝖓𝖌𝖘𝖙𝖊𝖗 - 𝕾𝖙𝖔𝖗𝖊 ™ </title>
+  <meta name="description" content="Loja Oficial @Evil produtos selecionados, entrega rápida e atendimento pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TESTEEEEEEEEEEEEEEEEEE">
+  <meta property="og:description" content="Produtos selecionados, entrega rápida e atendimento pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Loja+Luzeterna">
+  <meta property="og:url" content="https://seu-dominio-ou-blogger-url">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://via.placeholder.com/64.png?text=🌙">
+
+  <style>
+    :root{
+      --bg:#0b0f14;        /* fundo profundo */
+      --card:#121923;      /* cartões */
+      --muted:#9bb0c3;     /* texto secundário */
+      --text:#eef6ff;      /* texto principal */
+      --brand:#6ae3ff;     /* ciano lunar */
+      --accent:#9b8cff;    /* lilás */
+      --ok:#20d68f;        /* botão ok */
+      --warn:#ffb020;      /* destaque */
+      --maxw: 1320px;      /* largura máxima (ótimo em 4K) */
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(80vw 80vh at 60% -10%, #1a2430 0%, #0b0f14 50%) fixed var(--bg); color:var(--text); font-family:Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;border-radius:calc(var(--radius) - 6px)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header.nav{position:sticky;top:0;backdrop-filter: blur(8px);background:rgba(11,15,20,.5);border-bottom:1px solid rgba(255,255,255,.07);z-index:30}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.2px}
+    .brand .dot{width:12px;height:12px;border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--accent)); box-shadow:0 0 24px var(--brand)}
+    .nav a.btn{padding:10px 16px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--accent)); color:#04131a; font-weight:700; border:none}
+    .hero{padding:72px 24px 36px}
+    .hero .grid{display:grid;grid-template-columns: 1.1fr .9fr; gap:36px; align-items:center}
+    .hero h1{font-size:clamp(32px,3.8vw,64px); line-height:1.05; margin:0 0 14px}
+    .hero p{color:var(--muted);font-size:clamp(16px,1.1vw,20px)}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(18,25,35,.9), rgba(8,12,18,.9)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .glass{backdrop-filter: blur(10px)}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted);font-size:14px}
+    .section{padding:42px 24px}
+    .section h2{font-size:clamp(24px,2.2vw,38px);margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 20px}
+    .grid3{display:grid;grid-template-columns: repeat(3, 1fr); gap:24px}
+    .grid4{display:grid;grid-template-columns: repeat(4, 1fr); gap:20px}
+    .product{display:flex;flex-direction:column;gap:12px;padding:14px}
+    .price{display:flex;align-items:baseline;gap:8px}
+    .price .now{font-weight:800;font-size:22px;color:var(--brand)}
+    .price .old{text-decoration:line-through;color:rgba(255,255,255,.45)}
+    .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(106,227,255,.12);border:1px solid rgba(106,227,255,.35);color:var(--brand)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);font-weight:600}
+    .btn.ok{background:linear-gradient(135deg,var(--ok),#0fe3b5); color:#04131a;border:none}
+    .btn.ghost{background:transparent}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .testi{display:flex;flex-direction:column;gap:10px;padding:18px}
+    .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.2)}
+    .plans{display:grid;grid-template-columns: repeat(3, 1fr); gap:20px}
+    .plan{padding:18px;display:flex;flex-direction:column;gap:12px}
+    .plan h3{margin:0;font-size:22px}
+    .plan ul{margin:0;padding-left:18px;color:var(--muted)}
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    details{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:14px}
+    summary{cursor:pointer;font-weight:600}
+    footer{padding:26px 24px;color:#b8c7d6;border-top:1px solid rgba(255,255,255,.08);background:rgba(6,8,12,.8)}
+    .whats{position:fixed;right:20px;bottom:20px;z-index:50}
+    .whats a{display:flex;align-items:center;gap:10px;background:#25D366;color:#04131a;padding:12px 16px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .label{font-size:12px;color:var(--muted)}
+    /* Responsivo */
+    @media (max-width: 1024px){
+      .hero .grid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr 1fr}
+      .grid4{grid-template-columns:1fr 1fr}
+      .plans{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+    }
+    @media (max-width: 560px){
+      .wrap{padding:18px}
+    }
+  </style>
+  <!-- Schema.org ProductList -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {
+        "@type":"Product",
+        "name":"Fone Sem Fio MoonPods",
+        "image":"https://via.placeholder.com/800x600.png?text=MoonPods",
+        "description":"Graves intensos, bateria 36h, Bluetooth 5.3.",
+        "brand":"Luzeterna",
+        "offers":{"@type":"Offer","priceCurrency":"BRL","price":"169.90","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"Smartwatch Aurora",
+        "image":"https://via.placeholder.com/800x600.png?text=Aurora",
+        "description":"Oxímetro, batimentos, notificações.",
+        "brand":"Luzeterna",
+        "offers":{"@type":"Offer","priceCurrency":"BRL","price":"199.90","availability":"https://schema.org/InStock"}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>ʟᴏᴊᴀ <strong>ɪɴᴛᴇɢʀᴀᴅᴀ ™ </strong></span>
+      </div>
+      <nav class="row">
+        <a href="https://www.mercadolivre.com.br/minha-pagina/resumo?from=menu_mkt#from=menu_mkt" class="btn">Produtos</a>
+        <a href="http://127.0.0.1:5500/oteninvestimentos.html" class="btn">Planos</a>
+        <a href="#faq" class="btn">Dúvidas</a>
+        <a href="#faq" class="btn">Ingressos</a>
+        <a href="https://bemgangsterstore.github.io/travelinvestoten/bemgangsterstore/alldayweather/" class="btn">Previsao do Tempo</a>
+        <a href="https://bemgangsterstore.github.io/travelinvestoten/bemgangsterstore/voostest/" class="btn">Voos Cancelados</a>
+        <a href="https://api.whatsapp.com/send/?phone=5581993523392&text=Ol%C3%A1%2C+quero+comprar+na+Loja+Luzeterna&type=phone_number&app_absent=0" class="btn btn-primary">Falar no WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="pill">🌙 Frete grátis nas compras acima de R$199</span>
+        <h1>Produtos que <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">brilham</span> e atendimento que acolhe</h1>
+        <p>O gotico como estetica que floresce na escuridao, uma celebraçao do contraste entre trevas e beleza. (Ex umbris oritur stilus.)  (Elegancia sombria, eternamente sua. (Elegantia obscura, in aeternum tua.)</p>
+        <div class="cta">
+          <a href="#produtos" class="btn ok">Ver ofertas</a>
+          <a href="https://api.whatsapp.com/send/?phone=5581993523392&text=Ol%C3%A1%2C+quero+comprar+na+Loja+Luzeterna&type=phone_number&app_absent=0" class="btn ghost">Atendimento agora</a>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <span class="label">⭐️⭐️⭐️⭐️⭐️ 4.9/5 (1.200+ avaliações)</span>
+        </div>
+      </div>
+      <div class="card glass" style="padding:14px">
+        <img loading="lazy" src="https://via.placeholder.com/1280x920.png?text=Banner+4K+Luzeterna" alt="Banner Loja Luzeterna">
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos" class="section">
+    <div class="wrap">
+      <h2>Ofertas em destaque</h2>
+      <p class="sub">Escolha seu brilho favorito ✨</p>
+      <div class="grid4">
+        <!-- Card Produto 1 -->
+        <article class="card product">
+          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=MoonPods" alt="Fone MoonPods">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Fone Sem Fio MoonPods</strong>
+            <span class="badge">-20%</span>
+          </div>
+          <p class="label">Graves intensos, bateria 36h, Bluetooth 5.3</p>
+          <div class="price">
+            <span class="now">R$ 169,90</span>
+            <span class="old">R$ 219,90</span>
+          </div>
+          <div class="actions">
+            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20comprar%20o%20Fone%20MoonPods%20(R$169,90)">Comprar no WhatsApp</a>
+            <a class="btn" href="#detalhes-moonpods">Detalhes</a>
+          </div>
+        </article>
+        <!-- Card Produto 2 -->
+        <article class="card product">
+          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=Aurora" alt="Smartwatch Aurora">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Smartwatch Aurora</strong>
+            <span class="badge">TOP</span>
+          </div>
+          <p class="label">Oxímetro, batimentos, notificações</p>
+          <div class="price">
+            <span class="now">R$ 199,90</span>
+            <span class="old">R$ 249,90</span>
+          </div>
+          <div class="actions">
+            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20o%20Smartwatch%20Aurora%20(R$199,90)">Comprar no WhatsApp</a>
+            <a class="btn" href="#detalhes-aurora">Detalhes</a>
+          </div>
+        </article>
+        <!-- Card Produto 3 -->
+        <article class="card product">
+          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=LunarBox" alt="LunarBox">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
+          </div>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
+          <div class="price">
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
+          </div>
+          <div class="actions">
+            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20a%20LunarBox%20(R$149,90)">Comprar no WhatsApp</a>
+            <a class="btn" href="#detalhes-lunarbox">Detalhes</a>
+          </div>
+        </article>
+        <!-- Card Produto 4 -->
+        <article class="card product">
+          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=NebulaCam" alt="NebulaCam">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Câmera NebulaCam</strong>
+            <span class="badge">-10%</span>
+          </div>
+          <p class="label">1080p, visão noturna, Wi-Fi</p>
+          <div class="price">
+            <span class="now">R$ 179,90</span>
+            <span class="old">R$ 199,90</span>
+          </div>
+          <div class="actions">
+            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20a%20NebulaCam%20(R$179,90)">Comprar no WhatsApp</a>
+            <a class="btn" href="#detalhes-nebulacam">Detalhes</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section">
+    <div class="wrap">
+      <h2>O que dizem nossos clientes</h2>
+      <p class="sub">Atendimento próximo e entrega rápida</p>
+      <div class="grid3">
+        <figure class="card testi">
+          <div class="row"><img class="avatar" src="https://i.pravatar.cc/100?img=13" alt=""><strong>Ana R.</strong></div>
+          <figcaption>“Chegou em 2 dias e o suporte pelo WhatsApp foi perfeito.”</figcaption>
+        </figure>
+        <figure class="card testi">
+          <div class="row"><img class="avatar" src="https://i.pravatar.cc/100?img=21" alt=""><strong>Marcos V.</strong></div>
+          <figcaption>“Produto original e bem embalado. Recomendo muito.”</figcaption>
+        </figure>
+        <figure class="card testi">
+          <div class="row"><img class="avatar" src="https://i.pravatar.cc/100?img=7" alt=""><strong>Clara S.</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos" class="section">
+    <div class="wrap">
+      <h2>Nossos planos</h2>
+      <p class="sub">Escolha como quer comprar</p>
+      <div class="plans">
+        <div class="card plan">
+          <h3>À vista</h3>
+          <div class="price"><span class="now">até 10% OFF</span></div>
+          <ul>
+            <li>Pix ou boleto</li>
+            <li>Envio prioritário</li>
+            <li>Suporte premium</li>
+          </ul>
+          <a href="#contato" class="btn ok">Comprar</a>
+        </div>
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <h3>Cartão</h3>
+          <div class="price"><span class="now">até 12x</span></div>
+          <ul>
+            <li>Sem juros em produtos selecionados</li>
+            <li>Garantia estendida</li>
+            <li>Troca fácil</li>
+          </ul>
+          <a href="#contato" class="btn ok">Assinar</a>
+        </div>
+        <div class="card plan">
+          <h3>Combo</h3>
+          <div class="price"><span class="now">Economize 20%</span></div>
+          <ul>
+            <li>Monte seu kit</li>
+            <li>Frete grátis</li>
+            <li>Suporte dedicado</li>
+          </ul>
+          <a href="https://www.instagram.com/vickninfa?utm_source=qr&igsh=am1mMmdydm4xMzlv" class="btn ok">Falar com vendedor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <h2>Perguntas frequentes</h2>
+      <p class="sub">Transparência sempre</p>
+      <div class="faq">
+        <details open>
+          <summary>Como funciona a entrega?</summary>
+          <p>Enviamos em até 24h úteis após confirmação do pagamento. Você recebe o código de rastreio no WhatsApp.</p>
+        </details>
+        <details>
+          <summary>Quais as formas de pagamento?</summary>
+          <p>Pix, boleto e cartões em até 12x (em produtos selecionados).</p>
+        </details>
+        <details>
+          <summary>Tem garantia?</summary>
+          <p>Sim, 90 dias por defeito de fabricação + garantia estendida opcional.</p>
+        </details>
+        <details>
+          <summary>Posso comprar pelo WhatsApp?</summary>
+          <p>Sim! Clique em qualquer botão “Comprar no WhatsApp” e fale direto com a gente.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="wrap card" style="padding:20px">
+      <h2>Fale com a gente</h2>
+      <p class="sub">Tire dúvidas, combine o envio e receba ofertas personalizadas.</p>
+      <div class="row">
+        <a class="btn ok" href="https://wa.me/5581993523392?text=Olá%20Luzeterna,%20quero%20ajuda%20com%20minha%20compra">Abrir WhatsApp</a>
+        <a class="btn" href="mailto:contato@sua-loja.com">gangstersuporte@gmail.com</a>
+      </div>
+      <p class="label" style="margin-top:10px">Atendimento: seg–sáb, 8h–20h (Brasília)</p>
+    </div>
+  </section>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <div class="whats">
+    <a href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja%20Luzeterna">
+      <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path d="M19.11 17.47c-.27-.13-1.58-.77-1.83-.85-.25-.09-.43-.13-.62.13-.18.27-.71.86-.87 1.04-.16.18-.32.2-.59.07-.27-.13-1.12-.41-2.14-1.3-.79-.7-1.32-1.56-1.48-1.83-.16-.27-.02-.42.11-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.62-1.49-.84-2.05-.22-.53-.45-.46-.62-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.25s.99 2.61 1.13 2.79c.14.18 1.94 2.95 4.7 4.14.66.28 1.17.45 1.57.58.66.21 1.26.18 1.74.11.53-.08 1.58-.65 1.81-1.28.23-.63.23-1.18.16-1.28-.07-.11-.25-.18-.52-.3zM16.05 4C9.9 4 4.9 8.99 4.9 15.14c0 2.68.88 5.16 2.36 7.16L6 28l5.87-1.54a11.1 11.1 0 0 0 4.18.77c6.16 0 11.15-4.98 11.15-11.09C27.2 8.99 22.21 4 16.05 4z"/>
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <footer>
+    <div class="wrap row" style="justify-content:space-between;align-items:center">
+      <span>© <span id="year"></span> 𝕭𝖊𝖒 𝕲𝖆𝖓𝖌𝖘𝖙𝖊𝖗 - 𝕾𝖙𝖔𝖗𝖊 ™ • CNPJ 33.596.568/0001-76</span>
+      <span class="label">Feito com 💙 por Lua & Vida</span>
+    </div>
+  </footer>
+
+<audio autoplay loop>
+  <source src="assets/musica1.mp3" type="audio/mpeg">
+</audio>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Exemplo de rastreio simples de clique (pode trocar por GA/GTM)
+    document.querySelectorAll('[href*="wa.me"]').forEach(a=>{
+      a.addEventListener('click', ()=>console.log('WhatsApp CTA:', a.href));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Radar de Voos — Tempo Real</title>
+
+<!-- Fontes -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#07060a; --card:#0f1114; --muted:#9aa3ad;
+  --accent-a:#3bd1ff; --accent-b:#b56bff;
+  --neon: linear-gradient(90deg,var(--accent-a),var(--accent-b));
+  --card-radius:14px; --gap:18px;
+}
+*{box-sizing:border-box} html,body{height:100%}
+body{
+  margin:0; font-family: 'Poppins', sans-serif;
+  background: radial-gradient(1200px 400px at 10% 0%, rgba(50,20,70,0.12), transparent),
+              linear-gradient(180deg,#05050a 0%, #0b0b10 60%);
+  color:#e6eef8; -webkit-font-smoothing:antialiased; line-height:1.45;
+}
+
+/* header */
+header.top { padding:36px 20px 10px; text-align:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+header.top h1{
+  margin:0; font-family:"Playfair Display", serif; font-weight:700;
+  font-size:48px;
+  background: -webkit-linear-gradient(90deg,var(--accent-a),var(--accent-b));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+header.top p{ margin:10px 0 0; color:var(--muted); font-size:15px; }
+header.top .updated { margin-top:8px; font-size:13px; color:#7dd3f5; display:inline-flex; gap:8px; align-items:center; }
+
+/* layout */
+.wrap{ max-width:1250px; margin:20px auto; padding:0 20px; }
+.stats-grid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:var(--gap); margin-top:18px; align-items:stretch; }
+@media(max-width:1200px){ .stats-grid{ grid-template-columns: repeat(3, 1fr);} }
+@media(max-width:680px){ .stats-grid{ grid-template-columns: repeat(2, 1fr);} }
+
+.stat {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--card-radius); padding:18px; min-height:84px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+  cursor:pointer; transition: transform .16s ease, box-shadow .16s;
+  border:1px solid rgba(130,100,180,0.06);
+  text-align:center;
+}
+.stat:hover{ transform:translateY(-6px); box-shadow: 0 28px 64px rgba(0,0,0,0.7); }
+.stat .title{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+.stat .value{ font-size:28px; font-weight:800; color:#fff; display:flex; align-items:center; justify-content:center; gap:10px; }
+.stat .icon { width:40px; height:40px; border-radius:10px; display:inline-grid; place-items:center; background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); box-shadow: inset 0 -8px 20px rgba(0,0,0,0.4); color:var(--accent-a); font-weight:800; }
+
+/* search */
+.search-wrap{ display:flex; justify-content:center; margin:22px 0 8px; }
+.search{ width:100%; max-width:820px; display:flex; gap:8px; align-items:center; justify-content:center; }
+.search input{ width:100%; padding:12px 16px; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); color:#cfe7ff; border-radius:10px; outline:none; }
+
+/* filters */
+.filters{ max-width:1250px; margin:16px auto; padding:0 20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.filters button{ padding:10px 18px; border-radius:12px; border:none; background:transparent; color:#cbd6e3; cursor:pointer; border:1px solid rgba(255,255,255,0.03); transition:.12s; }
+.filters button.active{ background: var(--neon); color:#04121a; font-weight:700; box-shadow:0 10px 30px rgba(90,30,100,0.12); }
+
+/* flights */
+.flights{ max-width:1250px; margin:18px auto 110px; padding:0 20px; display:flex; flex-direction:column; gap:18px; }
+.flight{ background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border-radius:16px; padding:18px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border:1px solid rgba(130,100,180,0.06); display:flex; flex-direction:column; gap:12px; }
+.flight .row{ display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; align-items:center; }
+.flight .left{ display:flex; gap:14px; align-items:center; min-width:260px; flex:1 1 420px; }
+.flight .logo{ width:72px; height:72px; border-radius:12px; background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); display:grid; place-items:center; font-weight:800; font-size:18px; color:var(--accent-b); flex-shrink:0; box-shadow: 0 6px 18px rgba(90,20,140,0.12); }
+.flight h3{ margin:0; font-size:20px; }
+.flight .muted{ color:var(--muted); font-size:13px; margin-top:6px; }
+
+.badge{ padding:10px 16px; border-radius:22px; color:#fff; font-weight:800; font-size:13px; display:inline-flex; gap:10px; align-items:center; text-transform:uppercase; letter-spacing:0.6px; box-shadow: 0 8px 28px rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.03); }
+.badge.cancelado { background:linear-gradient(90deg,#c43a3a,#ff7f7f); border-color: rgba(255,90,90,0.12); }
+.badge.atrasado  { background:linear-gradient(90deg,#ffb86b,#ff7f00); border-color: rgba(255,140,40,0.12); }
+.badge.programado{ background:linear-gradient(90deg,#727b87,#8c97a6); border-color: rgba(255,255,255,0.03); }
+.badge.embarcando{ background:linear-gradient(90deg,#34d6a9,#06c395); border-color: rgba(0,200,140,0.12); }
+.badge.pousado   { background:linear-gradient(90deg,#5b86a6,#326b8f); border-color: rgba(60,120,180,0.12); }
+.badge.ativo     { background:linear-gradient(90deg,#1db954,#0ca37a); border-color: rgba(20,160,90,0.12); }
+
+.detail-box{ margin-top:6px; border-radius:12px; background:rgba(255,255,255,0.01); padding:14px; border:1px solid rgba(255,255,255,0.02); color:#d1e8ff; display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; }
+
+/* footer */
+footer{ background: rgba(20,20,30,0.6); border-top:1px solid rgba(255,255,255,0.02); color:#cfe7ff; padding:24px 20px; text-align:center; position:relative; }
+footer .small{ color:var(--muted); font-size:13px; margin-top:8px; }
+
+@media(max-width:980px){ .flight .left{ flex:1 1 220px } }
+@media(max-width:640px){ header.top h1{ font-size:32px } .stats-grid{ grid-template-columns: repeat(2,1fr) } .detail-box{ flex-direction:column } .search input{ width:92% } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Radar de Voos Brasil</h1>
+  <p>Monitoramento em Tempo Real • Horários Exatos • Motivos Detalhados</p>
+  <div class="updated" id="lastUpdated">● Última atualização: —</div>
+</header>
+
+<div class="wrap">
+  <div class="stats-grid" id="statsGrid" aria-hidden="false"></div>
+
+  <div class="search-wrap">
+    <div class="search">
+      <input id="q" placeholder="Buscar voos, companhias, cidades ou aeroportos..." />
+    </div>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="active" data-filter="todos">Todos</button>
+    <button data-filter="cancelado">Cancelados</button>
+    <button data-filter="atrasado">Atrasados</button>
+    <button data-filter="programado">Programados</button>
+    <button data-filter="embarcando">Embarcando</button>
+    <button data-filter="pousado">Pousados</button>
+  </div>
+</div>
+
+<section class="flights" id="flightsList"></section>
+
+<footer>
+  <div style="font-size:18px;font-weight:700">✈️ Radar de Voos Brasil</div>
+  <div class="small">Dados via AviationStack • Atualizações automáticas a cada 60s</div>
+</footer>
+<script>
+/* ================== CONFIG ================== */
+const AVIATION_KEY = "663dde862e8c11eb112189cae967ba87"; // sua chave da AviationStack
+const IPSTACK_KEY   = "e9d207dba95e475a92c2f486e1175f43"; // opcional (ipstack para detectar país)
+
+/* ajustes */
+const PER_LIMIT = 100;        // quantos voos requisitar por vez
+const REFRESH_MS = 60_000;    // tempo entre atualizações em ms (60s)
+
+/* estado */
+let allFlights = [];
+let currentFilter = 'todos';
+
+/* helpers */
+function safeGet(obj, path, fallback='') {
+  try { return path.split('.').reduce((s,p)=> s && s[p] !== undefined ? s[p] : null, obj) || fallback; } catch(e){ return fallback; }
+}
+function formatDate(iso){ if(!iso) return '—'; const d=new Date(iso); if(isNaN(d)) return iso; return d.toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'}); }
+function smallTime(iso){ if(!iso) return '—'; const d=new Date(iso); if(isNaN(d)) return iso; return d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
+
+function normalizeStatus(f){
+  const raw = (safeGet(f,'flight_status','')||'').toString().toLowerCase();
+  const depDelay = Number(safeGet(f,'departure.delay',0))||0;
+  const arrDelay = Number(safeGet(f,'arrival.delay',0))||0;
+  if(raw.includes('cancel')) return 'cancelado';
+  if(raw.includes('divert')) return 'desviado';
+  if(raw.includes('land') || raw.includes('arriv') || raw.includes('landed')) return 'pousado';
+  if(raw.includes('board') || raw.includes('boarding') || raw==='active' ) return 'embarcando';
+  if(raw.includes('sched') || raw.includes('scheduled')) return 'programado';
+  if(depDelay>0 || arrDelay>0 || raw.includes('delay')) return 'atrasado';
+  return raw || 'programado';
+}
+
+/* ====== UI render ====== */
+function renderStatsGrid(){
+  const grid = document.getElementById('statsGrid');
+  const counts = {
+    total: allFlights.length,
+    cancelado: allFlights.filter(f=> normalizeStatus(f)==='cancelado').length,
+    atrasado: allFlights.filter(f=> normalizeStatus(f)==='atrasado').length,
+    programado: allFlights.filter(f=> normalizeStatus(f)==='programado').length,
+    embarcando: allFlights.filter(f=> normalizeStatus(f)==='embarcando').length,
+    pousado: allFlights.filter(f=> normalizeStatus(f)==='pousado').length
+  };
+  const items = [
+    { key:'total', title:'Total', value:counts.total, icon:'✈' },
+    { key:'cancelado', title:'Cancelados', value:counts.cancelado, icon:'⚠' },
+    { key:'atrasado', title:'Atrasados', value:counts.atrasado, icon:'⏱' },
+    { key:'programado', title:'Programados', value:counts.programado, icon:'🗓' },
+    { key:'embarcando', title:'Embarcando', value:counts.embarcando, icon:'✅' },
+    { key:'pousado', title:'Pousados', value:counts.pousado, icon:'🛬' }
+  ];
+  grid.innerHTML = items.map(it => `
+    <div class="stat" data-filter="${it.key}">
+      <div class="title">${it.title}</div>
+      <div class="value"><div>${it.value}</div><div class="icon">${it.icon}</div></div>
+    </div>`).join('');
+  grid.querySelectorAll('.stat').forEach(el=> el.onclick=()=>activateFilter(el.dataset.filter==='total'?'todos':el.dataset.filter));
+}
+
+function createBadgeHtml(status){
+  const s = (status||'programado');
+  return `<span class="badge ${s}">${s.toUpperCase()}</span>`;
+}
+
+function renderFlightsList(filter='todos', query=''){
+  const container = document.getElementById('flightsList');
+  container.innerHTML = '';
+  let list = allFlights.slice();
+  if(filter !== 'todos') list = list.filter(f => normalizeStatus(f) === filter);
+  if(query && query.trim().length){
+    const q = query.trim().toLowerCase();
+    list = list.filter(f => {
+      return [ safeGet(f,'airline.name',''), safeGet(f,'flight.iata',''), safeGet(f,'departure.iata',''), safeGet(f,'arrival.iata',''), safeGet(f,'departure.airport',''), safeGet(f,'arrival.airport','') ].some(s => (s+'').toLowerCase().includes(q));
+    });
+  }
+
+  if(list.length === 0){
+    container.innerHTML = `<div style="color:var(--muted);text-align:center;padding:36px">Nenhum voo encontrado para essa seleção.</div>`;
+    return;
+  }
+
+  container.innerHTML = list.map(f=>{
+    const status = normalizeStatus(f);
+    const airline = safeGet(f,'airline.name','Companhia desconhecida');
+    const flightIata = safeGet(f,'flight.iata', safeGet(f,'flight.number','—'));
+    const depIata = safeGet(f,'departure.iata','—');
+    const depAirport = safeGet(f,'departure.airport','—');
+    const depSched = safeGet(f,'departure.scheduled','—');
+    const arrIata = safeGet(f,'arrival.iata','—');
+    const arrAirport = safeGet(f,'arrival.airport','—');
+    const arrSched = safeGet(f,'arrival.scheduled','—');
+    const delay = safeGet(f,'departure.delay', safeGet(f,'arrival.delay', null));
+    const cancelReason = safeGet(f,'cancel_reason','') || safeGet(f,'flight_status_detail','');
+
+    let reason = '';
+    if(status === 'cancelado') reason = cancelReason || 'Cancelado — motivo não informado.';
+    else if(status === 'atrasado') reason = delay ? `Atraso: ${delay} minutos.` : (cancelReason||'Atraso — motivo não informado.');
+
+    const badge = createBadgeHtml(status);
+
+    return `
+      <article class="flight" data-status="${status}">
+        <div class="row">
+          <div class="left">
+            <div class="logo">${(airline.split(' ').map(w=>w[0]||'').slice(0,2).join(''))}</div>
+            <div>
+              <h3>${flightIata} — ${airline}</h3>
+              <div class="muted">Programado: ${formatDate(depSched)} • Atual: ${smallTime(safeGet(f,'departure.estimated', safeGet(f,'arrival.estimated','')))}</div>
+            </div>
+          </div>
+          <div class="meta">${badge}</div>
+        </div>
+
+        <div class="detail-box">
+          <div style="min-width:240px">
+            <div style="font-weight:700">Origem</div>
+            <div class="muted">${depIata} — ${depAirport}</div>
+            <div style="margin-top:8px;font-size:13px;color:var(--muted)">${depSched ? formatDate(depSched) : '—'}</div>
+          </div>
+
+          <div style="min-width:240px">
+            <div style="font-weight:700">Destino</div>
+            <div class="muted">${arrIata} — ${arrAirport}</div>
+            <div style="margin-top:8px;font-size:13px;color:var(--muted)">${arrSched ? formatDate(arrSched) : '—'}</div>
+          </div>
+
+          <div style="flex:1;min-width:260px">
+            <div style="font-weight:700">Status atual</div>
+            <div class="muted" style="margin-top:6px">${(status||'—').toUpperCase()}</div>
+            ${reason ? `<div style="margin-top:12px;color:#ffd2c2;font-weight:700">${reason}</div>` : ''}
+          </div>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+/* ====== Fetch helpers ====== */
+async function tryFetchUrl(url){
+  try {
+    const res = await fetch(url);
+    if(!res.ok) { console.warn('HTTP', res.status, url); return {ok:false, body:null}; }
+    const text = await res.text();
+    try { return {ok:true, body: JSON.parse(text)}; } catch(e){ return {ok:true, body: text}; }
+  } catch (e) {
+    console.warn('fetch fail', url, e);
+    return {ok:false, body:null, error:e};
+  }
+}
+
+async function fetchAviationAll(limit = PER_LIMIT){
+  const endpoint = `https://api.aviationstack.com/v1/flights?access_key=${encodeURIComponent(AVIATION_KEY)}&limit=${limit}`;
+  const proxies = [ null, 'https://api.allorigins.win/raw?url=', 'https://thingproxy.freeboard.io/fetch/' ];
+
+  for(const p of proxies){
+    const url = p ? (p + encodeURIComponent(endpoint)) : endpoint;
+    console.log('Tentando', p ? `proxy ${p}` : 'direto', url);
+    const r = await tryFetchUrl(url);
+    if(r.ok && r.body){
+      const json = (typeof r.body === 'object') ? r.body : r.body;
+      if(json && Array.isArray(json.data)) return json.data;
+      if(Array.isArray(json)) return json;
+      if(json && json.error) {
+        console.warn('Aviation API returned error object', json);
+      }
+    }
+  }
+  return null;
+}
+
+/* fallback DEMO */
+const sampleDemo = [
+  {
+    airline:{name:"LATAM Brasil"},
+    flight:{iata:"LA-1166"},
+    departure:{iata:"GYN", airport:"Goiânia", scheduled:"2025-09-15T05:00:00+00:00", delay:125, estimated:"2025-09-15T07:32:00+00:00"},
+    arrival:{iata:"BSB", airport:"Brasília", scheduled:"2025-09-15T07:00:00+00:00"},
+    flight_status:"delayed"
+  },
+  {
+    airline:{name:"Azul Linhas Aéreas"},
+    flight:{iata:"AD-2200"},
+    departure:{iata:"VIX", airport:"Vitória", scheduled:"2025-09-15T11:45:00+00:00"},
+    arrival:{iata:"CNF", airport:"Belo Horizonte", scheduled:"2025-09-15T13:30:00+00:00"},
+    flight_status:"cancelled",
+    cancel_reason:"Pássaros na pista principal — inspeção em andamento."
+  },
+  {
+    airline:{name:"GOL Linhas Aéreas"},
+    flight:{iata:"G3-7788"},
+    departure:{iata:"AJU", airport:"Aracaju", scheduled:"2025-09-15T14:30:00+00:00"},
+    arrival:{iata:"GIG", airport:"Rio de Janeiro", scheduled:"2025-09-15T16:00:00+00:00"},
+    flight_status:"active"
+  }
+];
+
+/* fetchAll */
+async function fetchAll(){
+  try {
+    document.getElementById('lastUpdated').textContent = '● Carregando dados...';
+    let data = await fetchAviationAll(PER_LIMIT);
+    if(!data || !Array.isArray(data) || data.length === 0){
+      console.warn('AviationStack retornou vazio. Usando DEMO sample.');
+      allFlights = sampleDemo;
+      document.getElementById('lastUpdated').textContent = '● Dados demonstrativos (API não retornou voos).';
+    } else {
+      allFlights = data;
+      document.getElementById('lastUpdated').textContent = `● Última atualização: ${new Date().toLocaleString('pt-BR')}`;
+    }
+    renderStatsGrid();
+    renderFlightsList(currentFilter, document.getElementById('q').value);
+    console.log('Voos carregados:', allFlights.length);
+  } catch (e) {
+    console.error('Erro fetchAll', e);
+    document.getElementById('lastUpdated').textContent = '● Erro ao atualizar dados.';
+    allFlights = sampleDemo;
+    renderStatsGrid();
+    renderFlightsList(currentFilter, document.getElementById('q').value);
+  }
+}
+
+/* UI interactions */
+function activateFilter(key){
+  currentFilter = key;
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.toggle('active', b.dataset.filter === key));
+  document.querySelectorAll('#statsGrid .stat').forEach(s=> s.classList.toggle('active', s.getAttribute('data-filter') === key || (key==='todos' && s.getAttribute('data-filter')==='total')));
+  renderFlightsList(key, document.getElementById('q').value);
+}
+document.getElementById('q').addEventListener('input', (e)=> renderFlightsList(currentFilter, e.target.value));
+document.querySelectorAll('.filters button').forEach(btn=> btn.addEventListener('click', ()=> activateFilter(btn.dataset.filter)));
+
+/* start */
+(async function init(){
+  await fetchAll();
+  setInterval(fetchAll, REFRESH_MS);
+  window.addEventListener('focus', ()=> fetchAll());
+})();
+</script>
+</body>
+</html>
