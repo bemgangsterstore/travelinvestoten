@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://seu-dominio-ou-blogger-url">
 
   <!-- Favicon -->
-  <link rel="icon" href="https://via.placeholder.com/64.png?text=🌙">
+  <link rel="icon" href="assets\images\favcoin.jpg">
 
   <style>
     :root{
@@ -44,10 +44,305 @@
     .nav a.btn{padding:10px 16px;border:1px solid rgba(255,255,255,.12);border-radius:12px}
     .btn-primary{background:linear-gradient(135deg,var(--brand),var(--accent)); color:#04131a; font-weight:700; border:none}
     .hero{padding:72px 24px 36px}
-    .hero .grid{display:grid;grid-template-columns: 1.1fr .9fr; gap:36px; align-items:center}
+.hero .grid {
+  display: flex;
+  flex-direction: column;  /* coloca tudo em coluna */
+  justify-content: center; /* centraliza vertical */
+  align-items: center;     /* centraliza horizontal */
+  text-align: center;      /* centraliza o texto */
+  gap: 20px;               /* espaço entre os elementos */
+}
     .hero h1{font-size:clamp(32px,3.8vw,64px); line-height:1.05; margin:0 0 14px}
     .hero p{color:var(--muted);font-size:clamp(16px,1.1vw,20px)}
-    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.cta {
+  justify-content: center;
+}
+/* Centralização global */
+.wrap, .section, header, footer {
+  text-align: center;
+}
+
+.pulse-neon {
+  background: linear-gradient(135deg, #00f0ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  animation: pulseGlow 2.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 6px #00f0ff, 0 0 12px #00f0ff, 0 0 18px #ffffff;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #00f0ff, 0 0 28px #00f0ff;
+  }
+  100% {
+    text-shadow: 0 0 8px #00f0ff, 0 0 16px #ffffff, 0 0 24px #00f0ff;
+  }
+}
+
+/* Ver Ofertas - Azul galáctico pulsante */
+.btn.hero-offers {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.6), 0 0 24px rgba(0, 114, 255, 0.6);
+  animation: neonPulseBlue 2s infinite alternate;
+}
+
+/* Botão Detalhes pulsante */
+.details-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,150,255,0.5), 0 0 20px rgba(0,114,255,0.5);
+  animation: neonPulseBlue 2s infinite alternate;
+  transition: transform 0.2s ease-in-out;
+}
+
+.details-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Reaproveita a mesma animação do "Ver ofertas" */
+@keyframes neonPulseBlue {
+  from {
+    box-shadow: 0 0 10px rgba(0,150,255,0.5), 0 0 20px rgba(0,114,255,0.5);
+  }
+  to {
+    box-shadow: 0 0 18px rgba(0,150,255,0.9), 0 0 36px rgba(0,114,255,0.9);
+  }
+}
+
+/* Ver Ofertas - Azul galáctico pulsante */
+.btn.hero-offers {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.6), 0 0 24px rgba(0, 114, 255, 0.6);
+  animation: neonPulseBlue 2s infinite alternate;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn.hero-offers:hover {
+  transform: scale(1.05);
+}
+
+/* Animação pulsante azul */
+@keyframes neonPulseBlue {
+  from {
+    box-shadow: 0 0 12px rgba(0,150,255,0.5), 0 0 24px rgba(0,114,255,0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0,150,255,0.9), 0 0 40px rgba(0,114,255,0.9);
+  }
+}
+
+/* Atendimento Agora - Gradiente rosa/laranja neon pulsante */
+.btn.hero-att {
+  background: linear-gradient(135deg, #ff0080, #ff8c00);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 0, 128, 0.6), 0 0 24px rgba(255, 140, 0, 0.6);
+  animation: neonPulse 2s infinite alternate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Pulsar azul */
+@keyframes neonPulseBlue {
+  from { box-shadow: 0 0 12px rgba(0,150,255,0.5), 0 0 24px rgba(0,114,255,0.5); }
+  to   { box-shadow: 0 0 20px rgba(0,150,255,0.9), 0 0 40px rgba(0,114,255,0.9); }
+}
+
+/* ----- Neon headings (use estas classes no HTML) ----- */
+.neon-title{
+  display:block;
+  text-align:center;
+  font-weight:800;
+  letter-spacing:1px;
+  font-size: clamp(28px, 4.2vw, 56px);
+  line-height:1.02;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  -webkit-font-smoothing:antialiased;
+  /* brilho suave */
+  text-shadow:
+    0 6px 24px rgba(59,209,255,0.08),
+    0 0 30px rgba(181,107,255,0.08);
+  /* garante prioridade caso exista regra .section h2 */
+  box-decoration-break: clone;
+}
+
+/* subtítulo neon menor */
+.neon-sub{
+  display:block;
+  text-align:center;
+  font-size: clamp(14px, 1.6vw, 18px);
+  margin: 6px 0 22px;
+  background: linear-gradient(135deg, rgba(59,209,255,0.95), rgba(181,107,255,0.95));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  opacity:0.98;
+  text-shadow: 0 4px 18px rgba(59,209,255,0.06);
+}
+
+/* fallback simples para navegadores que não suportam background-clip */
+@supports(not ((-webkit-background-clip: text) or (background-clip: text))) {
+  .neon-title, .neon-sub { color: var(--brand); background:none; -webkit-text-fill-color:initial; }
+}
+
+/* centraliza o bloco (caso precise) */
+.section .wrap { text-align: center; }
+/* evita sobrescrita por regras mais fortes: */
+.section .wrap .neon-title, .section .wrap .neon-sub { margin-left:auto; margin-right:auto; }
+
+/* Botão Comprar - Neon gradiente pulsante */
+.btn.neon-buy {
+  background: linear-gradient(135deg, #ff0080, #ff8c00);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 0, 128, 0.6), 0 0 24px rgba(255, 140, 0, 0.6);
+  animation: neonPulse 2s infinite alternate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Botão Detalhes - apenas pulsante */
+.btn.neon-details {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .25);
+  color: #fff;
+  font-weight: 600;
+  animation: neonPulseSoft 2s infinite alternate;
+}
+
+/* Pulsar forte (para Comprar) */
+@keyframes neonPulse {
+  from { box-shadow: 0 0 12px rgba(255,0,128,0.5), 0 0 24px rgba(255,140,0,0.5); }
+  to   { box-shadow: 0 0 20px rgba(255,0,128,0.9), 0 0 40px rgba(255,140,0,0.9); }
+}
+
+/* Pulsar suave (para Detalhes) */
+@keyframes neonPulseSoft {
+  from { box-shadow: 0 0 6px rgba(255,255,255,0.2); }
+  to   { box-shadow: 0 0 14px rgba(255,255,255,0.6); }
+}
+
+/* WhatsApp flutuante neon */
+.whats {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.whats a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366; /* cor WhatsApp */
+  color: #04131a;
+  font-weight: 800;
+  padding: 14px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 16px;
+  box-shadow: 0 0 15px #25D366, 0 0 30px #25D366; /* neon */
+  animation: pulseNeon 2s infinite;
+  transition: transform 0.2s ease-in-out;
+}
+
+.whats a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #25D366, 0 0 40px #25D366;
+}
+
+/* Animação de pulsar neon */
+@keyframes pulseNeon {
+  0% {
+    box-shadow: 0 0 15px #25D366, 0 0 30px #25D366;
+  }
+  50% {
+    box-shadow: 0 0 25px #25D366, 0 0 60px #25D366;
+  }
+  100% {
+    box-shadow: 0 0 15px #25D366, 0 0 30px #25D366;
+  }
+}
+
+/* Ajusta títulos e subtítulos */
+h1, h2, h3, p.sub {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Centraliza grids */
+.grid3, .grid4, .plans, .faq, .products-grid, .category-grid, .comments-grid {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Cards e produtos */
+.card, .product, .plan, .testi, .faq details {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Card Fale com a gente */
+#contato .card {
+  max-width: 700px;   /* deixa o card mais estreito */
+  margin: 0 auto;     /* centraliza */
+  text-align: center; /* centraliza textos */
+}
+
+/* Centralizar botões e email */
+#contato .row {
+  justify-content: center; /* centraliza no meio */
+  gap: 16px;               /* espaço entre os itens */
+  flex-wrap: wrap;         /* quebra para baixo no celular */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
+  .grid3 { grid-template-columns: 1fr 1fr; }
+  .grid4 { grid-template-columns: 1fr 1fr; }
+  .plans { grid-template-columns: 1fr; }
+  .faq { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .wrap { padding: 16px; }
+  .grid3, .grid4, .plans, .faq { grid-template-columns: 1fr; }
+}
+
+
+  /* Centralizar títulos da seção produtos */
+  #produtos h2,
+  #produtos .sub {
+    text-align: center;
+  }
     .card{background:linear-gradient(180deg, rgba(18,25,35,.9), rgba(8,12,18,.9)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
     .glass{backdrop-filter: blur(10px)}
     .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--muted);font-size:14px}
@@ -56,17 +351,44 @@
     .sub{color:var(--muted);margin:0 0 20px}
     .grid3{display:grid;grid-template-columns: repeat(3, 1fr); gap:24px}
     .grid4{display:grid;grid-template-columns: repeat(4, 1fr); gap:20px}
-    .product{display:flex;flex-direction:column;gap:12px;padding:14px}
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  align-items: center;    /* Centraliza todos os elementos */
+  text-align: center;     /* Centraliza textos */
+}
     .price{display:flex;align-items:baseline;gap:8px}
     .price .now{font-weight:800;font-size:22px;color:var(--brand)}
     .price .old{text-decoration:line-through;color:rgba(255,255,255,.45)}
     .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(106,227,255,.12);border:1px solid rgba(106,227,255,.35);color:var(--brand)}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
+.actions {
+  display: flex;
+  flex-direction: column; /* Botões em coluna */
+  gap: 10px;
+  width: 100%;            /* pra ocupar o espaço do card */
+  align-items: center;    /* Centraliza os botões */
+}
     .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);font-weight:600}
     .btn.ok{background:linear-gradient(135deg,var(--ok),#0fe3b5); color:#04131a;border:none}
     .btn.ghost{background:transparent}
     .row{display:flex;gap:16px;flex-wrap:wrap}
-    .testi{display:flex;flex-direction:column;gap:10px;padding:18px}
+/* Centralizar conteúdo dos cards de clientes */
+.testi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Centraliza na horizontal */
+  justify-content: center; /* Centraliza na vertical */
+  text-align: center;   /* Texto centralizado */
+}
+
+.testi .row {
+  display: flex;
+  flex-direction: column; /* Empilha imagem + nome */
+  align-items: center;    /* Centraliza no meio */
+  gap: 8px;
+}
     .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.2)}
     .plans{display:grid;grid-template-columns: repeat(3, 1fr); gap:20px}
     .plan{padding:18px;display:flex;flex-direction:column;gap:12px}
@@ -116,6 +438,7 @@
       }
     ]
   }
+  
   </script>
 </head>
 <body>
@@ -131,8 +454,8 @@
         <a href="http://127.0.0.1:5500/oteninvestimentos.html" class="btn">Planos</a>
         <a href="#faq" class="btn">Dúvidas</a>
         <a href="#faq" class="btn">Ingressos</a>
-        <a href="http://127.0.0.1:5500/alldayweather.html" class="btn">Previsao do Tempo</a>
-        <a href="http://127.0.0.1:5500/voostest.html" class="btn">Voos Cancelados</a>
+        <a href="alldayweather.html" class="btn">Previsao do Tempo</a>
+        <a href="voostest.html" class="btn">Voos Cancelados</a>
         <a href="https://api.whatsapp.com/send/?phone=5581993523392&text=Ol%C3%A1%2C+quero+comprar+na+Loja+Luzeterna&type=phone_number&app_absent=0" class="btn btn-primary">Falar no WhatsApp</a>
       </nav>
     </div>
@@ -143,18 +466,15 @@
     <div class="wrap grid">
       <div>
         <span class="pill">🌙 Frete grátis nas compras acima de R$199</span>
-        <h1>Produtos que <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">brilham</span> e atendimento que acolhe</h1>
-        <p>O gotico como estetica que floresce na escuridao, uma celebraçao do contraste entre trevas e beleza. (Ex umbris oritur stilus.)  (Elegancia sombria, eternamente sua. (Elegantia obscura, in aeternum tua.)</p>
-        <div class="cta">
-          <a href="#produtos" class="btn ok">Ver ofertas</a>
-          <a href="https://api.whatsapp.com/send/?phone=5581993523392&text=Ol%C3%A1%2C+quero+comprar+na+Loja+Luzeterna&type=phone_number&app_absent=0" class="btn ghost">Atendimento agora</a>
-        </div>
+        <h1>Produtos <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Originais</span> e atendimento <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">24H</span></h1>
+        <p>O estilozo com estetica floresce na escuridao, elegancia sombria eternamente sua.</p>
+<div class="hero-actions">
+<a href="#produtos" class="btn hero-offers">Promoçoes de Inauguraçao 🛒</a>
+  <a href="#contato" class="btn hero-att">Atendimento no WhatsApp 24h</a>
+</div>
         <div class="row" style="margin-top:14px">
           <span class="label">⭐️⭐️⭐️⭐️⭐️ 4.9/5 (1.200+ avaliações)</span>
         </div>
-      </div>
-      <div class="card glass" style="padding:14px">
-        <img loading="lazy" src="https://via.placeholder.com/1280x920.png?text=Banner+4K+Luzeterna" alt="Banner Loja Luzeterna">
       </div>
     </div>
   </section>
@@ -162,12 +482,14 @@
   <!-- PRODUTOS -->
   <section id="produtos" class="section">
     <div class="wrap">
-      <h2>Ofertas em destaque</h2>
-      <p class="sub">Escolha seu brilho favorito ✨</p>
+<h2 class="pulse-neon">ᴏꜰᴇʀᴛᴀꜱ ᴇᴍ ᴅᴇꜱᴛᴀǫᴜᴇ</h2>
+<p class="sub pulse-neon">Escolha seu Style Favorito. ✨</p>
+
       <div class="grid4">
         <!-- Card Produto 1 -->
+         
         <article class="card product">
-          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=MoonPods" alt="Fone MoonPods">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="Fone MoonPods">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Fone Sem Fio MoonPods</strong>
             <span class="badge">-20%</span>
@@ -177,14 +499,16 @@
             <span class="now">R$ 169,90</span>
             <span class="old">R$ 219,90</span>
           </div>
-          <div class="actions">
-            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20comprar%20o%20Fone%20MoonPods%20(R$169,90)">Comprar no WhatsApp</a>
-            <a class="btn" href="#detalhes-moonpods">Detalhes</a>
-          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
         </article>
         <!-- Card Produto 2 -->
         <article class="card product">
-          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=Aurora" alt="Smartwatch Aurora">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="Smartwatch Aurora">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Smartwatch Aurora</strong>
             <span class="badge">TOP</span>
@@ -194,14 +518,17 @@
             <span class="now">R$ 199,90</span>
             <span class="old">R$ 249,90</span>
           </div>
-          <div class="actions">
-            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20o%20Smartwatch%20Aurora%20(R$199,90)">Comprar no WhatsApp</a>
-            <a class="btn" href="#detalhes-aurora">Detalhes</a>
-          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
         </article>
         <!-- Card Produto 3 -->
         <article class="card product">
-          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=LunarBox" alt="LunarBox">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Caixa de Som LunarBox</strong>
             <span class="badge">Novo</span>
@@ -211,14 +538,17 @@
             <span class="now">R$ 149,90</span>
             <span class="old">R$ 189,90</span>
           </div>
-          <div class="actions">
-            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20a%20LunarBox%20(R$149,90)">Comprar no WhatsApp</a>
-            <a class="btn" href="#detalhes-lunarbox">Detalhes</a>
-          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
         </article>
         <!-- Card Produto 4 -->
         <article class="card product">
-          <img loading="lazy" src="https://via.placeholder.com/900x700.png?text=NebulaCam" alt="NebulaCam">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="NebulaCam">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Câmera NebulaCam</strong>
             <span class="badge">-10%</span>
@@ -228,31 +558,127 @@
             <span class="now">R$ 179,90</span>
             <span class="old">R$ 199,90</span>
           </div>
-          <div class="actions">
-            <a class="btn ok" href="https://wa.me/5581999999999?text=Quero%20a%20NebulaCam%20(R$179,90)">Comprar no WhatsApp</a>
-            <a class="btn" href="#detalhes-nebulacam">Detalhes</a>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
+        </article>
+                <!-- Card Produto 5 -->
+        <article class="card product">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
           </div>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
+          <div class="price">
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
+          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
+        </article>
+                <!-- Card Produto 6 -->
+        <article class="card product">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
+          </div>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
+          <div class="price">
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
+          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
+        </article>
+                <!-- Card Produto 7 -->
+        <article class="card product">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
+          </div>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
+          <div class="price">
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
+          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
+        </article>
+                <!-- Card Produto 8 -->
+        <article class="card product">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
+          </div>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
+          <div class="price">
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
+          </div>
+<div class="actions">
+  <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
+    🛒 Comprar no WhatsApp
+  </a>
+<a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
+</div>
+
         </article>
       </div>
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
-  <section class="section">
-    <div class="wrap">
-      <h2>O que dizem nossos clientes</h2>
-      <p class="sub">Atendimento próximo e entrega rápida</p>
+<!-- TESTEMUNHOS -->
+<section id="clientes" class="section">
+  <div class="wrap" style="text-align:center">
+  <h2 class="pulse-neon">O que dizem nossos Clientes</h2>
+<p class="sub pulse-neon">Atendimento próximo e entrega rápida!</p>
+  
       <div class="grid3">
         <figure class="card testi">
-          <div class="row"><img class="avatar" src="https://i.pravatar.cc/100?img=13" alt=""><strong>Ana R.</strong></div>
+          <div class="row"><img class="avatar" src="assets\img\images.jpg" alt=""><strong>@andersonneiff</strong></div>
           <figcaption>“Chegou em 2 dias e o suporte pelo WhatsApp foi perfeito.”</figcaption>
         </figure>
         <figure class="card testi">
-          <div class="row"><img class="avatar" src="https://i.pravatar.cc/100?img=21" alt=""><strong>Marcos V.</strong></div>
+          <div class="row"><img class="avatar" src="assets\img\g_-294rj_400x400.jpg" alt=""><strong>Aline Medeiros</strong></div>
           <figcaption>“Produto original e bem embalado. Recomendo muito.”</figcaption>
         </figure>
         <figure class="card testi">
-          <div class="row"><img class="avatar" src="https://i.pravatar.cc/100?img=7" alt=""><strong>Clara S.</strong></div>
+          <div class="row"><img class="avatar" src="assets\img\th.jpg" alt=""><strong>Rafael Sant'ana</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+                <figure class="card testi">
+          <div class="row"><img class="avatar" src="assets\img\37264203eb15f335e7d88796b59a1df7.jpg" alt=""><strong>Clara Soares</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+                <figure class="card testi">
+          <div class="row"><img class="avatar" src="assets\img\Perfil.png" alt=""><strong>Samuel Myller</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+                <figure class="card testi">
+          <div class="row"><img class="avatar" src="assets\img\2c01cd44-b8ca-42da-b65f-46c72b2ef5b0.png" alt=""><strong>Danniela Altheam</strong></div>
           <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
         </figure>
       </div>
@@ -262,8 +688,8 @@
   <!-- PLANOS -->
   <section id="planos" class="section">
     <div class="wrap">
-      <h2>Nossos planos</h2>
-      <p class="sub">Escolha como quer comprar</p>
+<h2 class="pulse-neon">Nossos Planos</h2>
+<p class="sub pulse-neon">Escolha como quer comprar.</p>
       <div class="plans">
         <div class="card plan">
           <h3>À vista</h3>
@@ -299,42 +725,70 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="section">
-    <div class="wrap">
-      <h2>Perguntas frequentes</h2>
-      <p class="sub">Transparência sempre</p>
-      <div class="faq">
-        <details open>
-          <summary>Como funciona a entrega?</summary>
-          <p>Enviamos em até 24h úteis após confirmação do pagamento. Você recebe o código de rastreio no WhatsApp.</p>
-        </details>
-        <details>
-          <summary>Quais as formas de pagamento?</summary>
-          <p>Pix, boleto e cartões em até 12x (em produtos selecionados).</p>
-        </details>
-        <details>
-          <summary>Tem garantia?</summary>
-          <p>Sim, 90 dias por defeito de fabricação + garantia estendida opcional.</p>
-        </details>
-        <details>
-          <summary>Posso comprar pelo WhatsApp?</summary>
-          <p>Sim! Clique em qualquer botão “Comprar no WhatsApp” e fale direto com a gente.</p>
-        </details>
-      </div>
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="wrap" style="text-align:center">
+  <h2 class="pulse-neon">Perguntas Frequentes</h2>
+<p class="sub pulse-neon">Transparecia sempre</p>
+
+    <!-- cards de perguntas -->
+    <div class="faq" style="max-width:900px;margin:0 auto;text-align:left">
+      <details>
+        <summary>Como funciona a entrega?</summary>
+        <p>Nossas entregas são feitas em até 48 horas, com rastreamento em tempo real.</p>
+      </details>
+
+      <details>
+        <summary>Posso trocar ou devolver?</summary>
+        <p>Sim, você tem até 7 dias corridos para solicitar troca ou devolução.</p>
+      </details>
+
+      <details>
+        <summary>Quais formas de pagamento aceitam?</summary>
+        <p>Aceitamos cartões de crédito, Pix e boleto bancário.</p>
+      </details>
+
+      <details>
+        <summary>Existe suporte dedicado?</summary>
+        <p>Nosso suporte é 24/7 via chat e WhatsApp.</p>
+      </details>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="section">
+  <div class="wrap" style="text-align:center">
+<h2 class="pulse-neon">Fale com a gente:</h2>
+<p class="sub pulse-neon">Estamos prontos para te atender 💬</p>
+
+    <div class="card" style="max-width:600px;margin:20px auto;padding:20px;text-align:left">
+      <form>
+        <label for="nome">Nome</label><br>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff"><br>
+
+        <label for="email">E-mail</label><br>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff"><br>
+
+        <label for="mensagem">Mensagem</label><br>
+        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;height:120px"></textarea><br>
+
+        <button type="submit" class="btn ok" style="width:100%">Enviar</button>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- CONTATO -->
   <section id="contato" class="section">
     <div class="wrap card" style="padding:20px">
-      <h2>Fale com a gente</h2>
-      <p class="sub">Tire dúvidas, combine o envio e receba ofertas personalizadas.</p>
+<h2 class="pulse-neon">Vai ficar de fora? Entre em contato.</h2>
+<p class="sub pulse-neon">Tire dúvidas, combine o envio e receba ofertas personalizadas. 💬</p>
       <div class="row">
         <a class="btn ok" href="https://wa.me/5581993523392?text=Olá%20Luzeterna,%20quero%20ajuda%20com%20minha%20compra">Abrir WhatsApp</a>
         <a class="btn" href="mailto:contato@sua-loja.com">gangstersuporte@gmail.com</a>
       </div>
-      <p class="label" style="margin-top:10px">Atendimento: seg–sáb, 8h–20h (Brasília)</p>
+      <p class="label" style="margin-top:10px">Atendimento: seg–sáb, 24h–48h (Brasília)</p>
     </div>
   </section>
 
