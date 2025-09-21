@@ -442,38 +442,101 @@ h1, h2, h3, p.sub {
   </script>
 </head>
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <div class="wrap inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>ʟᴏᴊᴀ <strong>ɪɴᴛᴇɢʀᴀᴅᴀ ™ </strong></span>
-      </div>
-      <nav class="row">
-        <a href="https://www.mercadolivre.com.br/minha-pagina/resumo?from=menu_mkt#from=menu_mkt" class="btn">Produtos</a>
-        <a href="http://127.0.0.1:5500/oteninvestimentos.html" class="btn">Planos</a>
-        <a href="#faq" class="btn">Dúvidas</a>
-        <a href="#faq" class="btn">Ingressos</a>
-        <a href="alldayweather.html" class="btn">Previsao do Tempo</a>
-        <a href="voostest.html" class="btn">Voos Cancelados</a>
-        <a href="https://api.whatsapp.com/send/?phone=5581993523392&text=Ol%C3%A1%2C+quero+comprar+na+Loja+Luzeterna&type=phone_number&app_absent=0" class="btn btn-primary">Falar no WhatsApp</a>
-      </nav>
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap inner">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>ʟᴏᴊᴀ <strong>ɪɴᴛᴇɢʀᴀᴅᴀ ™ </strong></span>
     </div>
-  </header>
+
+    <!-- Botão hamburguer -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menu -->
+    <nav class="row" id="menu">
+      <a href="https://www.mercadolivre.com.br/minha-pagina/resumo?from=menu_mkt#from=menu_mkt" class="btn">ᴘʀᴏᴅᴜᴛᴏꜱ</a>
+      <a href="http://127.0.0.1:5500/oteninvestimentos.html" class="btn">ᴘʟᴀɴᴏꜱ</a>
+      <a href="#faq" class="btn">ᴅúᴠɪᴅᴀꜱ</a>
+      <a href="#faq" class="btn">ɪɴɢʀᴇꜱꜱᴏꜱ</a>
+      <a href="alldayweather.html" class="btn">ᴘʀᴇᴠɪꜱᴀᴏ ᴅᴏ ᴛᴇᴍᴘᴏ</a>
+      <a href="voostest.html" class="btn">ᴠᴏᴏꜱ ᴄᴀɴᴄᴇʟᴀᴅᴏꜱ</a>
+      <a href="https://api.whatsapp.com/send/?phone=5581993523392&text=Ol%C3%A1%2C+quero+comprar+na+Loja+Luzeterna&type=phone_number&app_absent=0" class="btn btn-primary">ᴡʜᴀᴛꜱᴀᴘᴘ ᴏꜰɪᴄɪᴀʟ</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+/* Estilo do botão hamburguer */
+.menu-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* só aparece no celular */
+}
+
+/* Esconde o menu no celular */
+#menu {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  #menu {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    padding: 15px;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    border-radius: 8px;
+  }
+
+  #menu.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+  }
+}
+
+.btn {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: white;
+  background: #333;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background: green;
+}
+</style>
+
+<script>
+// Script para abrir/fechar menu
+document.getElementById("menu-toggle").addEventListener("click", function() {
+  document.getElementById("menu").classList.toggle("show");
+});
+</script>
+
 
   <!-- HERO -->
   <section class="hero">
     <div class="wrap grid">
       <div>
-        <span class="pill">🌙 Frete grátis nas compras acima de R$199</span>
-        <h1>Produtos <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Originais</span> e atendimento <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">24H</span></h1>
-        <p>O estilozo com estetica floresce na escuridao, elegancia sombria eternamente sua.</p>
+        <span class="pill"> 📦 ꜰʀᴇᴛᴇ ɢʀáᴛɪꜱ ɴᴀꜱ ᴄᴏᴍᴘʀᴀꜱ ᴀᴄɪᴍᴀ ᴅᴇ ʀ$𝟣𝟫𝟫 📦</span> 
+        <h1>ᴘʀᴏᴅᴜᴛᴏꜱ <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">ᴏʀɪɢɪɴᴀɪꜱ</span> ᴇ ᴀᴛᴇɴᴅɪᴍᴇɴᴛᴏ <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">𝟤𝟦ʜ</span></h1>
+        <p>ᴏ ᴇꜱᴛɪʟᴏᴢᴏ ᴄᴏᴍ ᴇꜱᴛᴇᴛɪᴄᴀ ꜰʟᴏʀᴇꜱᴄᴇ ɴᴀ ᴇꜱᴄᴜʀɪᴅᴀᴏ, ᴇʟᴇɢᴀɴᴄɪᴀ ꜱᴏᴍʙʀɪᴀ ᴇᴛᴇʀɴᴀᴍᴇɴᴛᴇ ꜱᴜᴀ.</p>
 <div class="hero-actions">
-<a href="#produtos" class="btn hero-offers">Promoçoes de Inauguraçao 🛒</a>
-  <a href="#contato" class="btn hero-att">Atendimento no WhatsApp 24h</a>
+  <a href="#contato" class="btn hero-att">ᴘʀᴏᴍᴏçᴏᴇꜱ ᴅᴇ ɪɴᴀᴜɢᴜʀᴀçᴀᴏ 🛒</a>
 </div>
         <div class="row" style="margin-top:14px">
-          <span class="label">⭐️⭐️⭐️⭐️⭐️ 4.9/5 (1.200+ avaliações)</span>
+          <span class="label">⭐️⭐️⭐️⭐️⭐️ 𝟦.𝟫/𝟧 (𝟣.𝟤𝟢𝟢+ ᴀᴠᴀʟɪᴀçõᴇꜱ)</span>
         </div>
       </div>
     </div>
@@ -482,22 +545,25 @@ h1, h2, h3, p.sub {
   <!-- PRODUTOS -->
   <section id="produtos" class="section">
     <div class="wrap">
-<h2 class="pulse-neon">ᴏꜰᴇʀᴛᴀꜱ ᴇᴍ ᴅᴇꜱᴛᴀǫᴜᴇ</h2>
-<p class="sub pulse-neon">Escolha seu Style Favorito. ✨</p>
 
+<h2 class="pulse-neon">ᴏꜰᴇʀᴛᴀꜱ ᴇᴍ ᴅᴇꜱᴛᴀǫᴜᴇ</h2>
+<p class="sub pulse-neon">"ᴇʟᴇɢâɴᴄɪᴀ ᴍᴏᴅᴇʀɴᴀ, ᴇꜱᴛɪʟᴏ ꜱᴇᴍ ꜰʀᴏɴᴛᴇɪʀᴀꜱ."✨</p>
+                                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
       <div class="grid4">
         <!-- Card Produto 1 -->
-         
         <article class="card product">
-          <img loading="lazy" src="assets\images\img1.jpg" alt="Fone MoonPods">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
-            <strong>Fone Sem Fio MoonPods</strong>
-            <span class="badge">-20%</span>
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
           </div>
-          <p class="label">Graves intensos, bateria 36h, Bluetooth 5.3</p>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
           <div class="price">
-            <span class="now">R$ 169,90</span>
-            <span class="old">R$ 219,90</span>
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
           </div>
 <div class="actions">
   <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
@@ -505,18 +571,21 @@ h1, h2, h3, p.sub {
   </a>
 <a class="btn btn-hero details-btn" href="#detalhes">Detalhes</a>
 </div>
+
         </article>
         <!-- Card Produto 2 -->
-        <article class="card product">
-          <img loading="lazy" src="assets\images\img1.jpg" alt="Smartwatch Aurora">
+         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
-            <strong>Smartwatch Aurora</strong>
-            <span class="badge">TOP</span>
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
           </div>
-          <p class="label">Oxímetro, batimentos, notificações</p>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
           <div class="price">
-            <span class="now">R$ 199,90</span>
-            <span class="old">R$ 249,90</span>
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
           </div>
 <div class="actions">
   <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
@@ -528,6 +597,8 @@ h1, h2, h3, p.sub {
         </article>
         <!-- Card Produto 3 -->
         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
           <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Caixa de Som LunarBox</strong>
@@ -547,16 +618,18 @@ h1, h2, h3, p.sub {
 
         </article>
         <!-- Card Produto 4 -->
-        <article class="card product">
-          <img loading="lazy" src="assets\images\img1.jpg" alt="NebulaCam">
+         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
-            <strong>Câmera NebulaCam</strong>
-            <span class="badge">-10%</span>
+            <strong>Caixa de Som LunarBox</strong>
+            <span class="badge">Novo</span>
           </div>
-          <p class="label">1080p, visão noturna, Wi-Fi</p>
+          <p class="label">Som 360°, à prova d’água IPX7</p>
           <div class="price">
-            <span class="now">R$ 179,90</span>
-            <span class="old">R$ 199,90</span>
+            <span class="now">R$ 149,90</span>
+            <span class="old">R$ 189,90</span>
           </div>
 <div class="actions">
   <a class="btn neon-buy" href="https://wa.me/5581993523392?text=Olá,%20quero%20comprar%20na%20Loja">
@@ -568,6 +641,8 @@ h1, h2, h3, p.sub {
         </article>
                 <!-- Card Produto 5 -->
         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
           <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Caixa de Som LunarBox</strong>
@@ -588,6 +663,8 @@ h1, h2, h3, p.sub {
         </article>
                 <!-- Card Produto 6 -->
         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
           <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Caixa de Som LunarBox</strong>
@@ -608,6 +685,8 @@ h1, h2, h3, p.sub {
         </article>
                 <!-- Card Produto 7 -->
         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
           <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Caixa de Som LunarBox</strong>
@@ -628,6 +707,8 @@ h1, h2, h3, p.sub {
         </article>
                 <!-- Card Produto 8 -->
         <article class="card product">
+                          <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
           <img loading="lazy" src="assets\images\img1.jpg" alt="LunarBox">
           <div class="row" style="justify-content:space-between;align-items:center">
             <strong>Caixa de Som LunarBox</strong>
@@ -649,57 +730,31 @@ h1, h2, h3, p.sub {
       </div>
     </div>
   </section>
-
-<!-- TESTEMUNHOS -->
-<section id="clientes" class="section">
-  <div class="wrap" style="text-align:center">
-  <h2 class="pulse-neon">O que dizem nossos Clientes</h2>
-<p class="sub pulse-neon">Atendimento próximo e entrega rápida!</p>
-  
-      <div class="grid3">
-        <figure class="card testi">
-          <div class="row"><img class="avatar" src="assets\img\images.jpg" alt=""><strong>@andersonneiff</strong></div>
-          <figcaption>“Chegou em 2 dias e o suporte pelo WhatsApp foi perfeito.”</figcaption>
-        </figure>
-        <figure class="card testi">
-          <div class="row"><img class="avatar" src="assets\img\g_-294rj_400x400.jpg" alt=""><strong>Aline Medeiros</strong></div>
-          <figcaption>“Produto original e bem embalado. Recomendo muito.”</figcaption>
-        </figure>
-        <figure class="card testi">
-          <div class="row"><img class="avatar" src="assets\img\th.jpg" alt=""><strong>Rafael Sant'ana</strong></div>
-          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
-        </figure>
-                <figure class="card testi">
-          <div class="row"><img class="avatar" src="assets\img\37264203eb15f335e7d88796b59a1df7.jpg" alt=""><strong>Clara Soares</strong></div>
-          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
-        </figure>
-                <figure class="card testi">
-          <div class="row"><img class="avatar" src="assets\img\Perfil.png" alt=""><strong>Samuel Myller</strong></div>
-          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
-        </figure>
-                <figure class="card testi">
-          <div class="row"><img class="avatar" src="assets\img\2c01cd44-b8ca-42da-b65f-46c72b2ef5b0.png" alt=""><strong>Danniela Altheam</strong></div>
-          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
   <!-- PLANOS -->
   <section id="planos" class="section">
     <div class="wrap">
-<h2 class="pulse-neon">Nossos Planos</h2>
-<p class="sub pulse-neon">Escolha como quer comprar.</p>
+<h2 class="pulse-neon">ɴᴏꜱꜱᴏꜱ ᴘʟᴀɴᴏꜱ</h2>
+<p class="sub pulse-neon">ᴇꜱᴄᴏʟʜᴀ ᴄᴏᴍᴏ ǫᴜᴇʀ ᴄᴏᴍᴘʀᴀʀ.</p>
       <div class="plans">
-        <div class="card plan">
-          <h3>À vista</h3>
-          <div class="price"><span class="now">até 10% OFF</span></div>
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <h3>Cartão</h3>
+          <div class="price"><span class="now">até 12x</span></div>
           <ul>
-            <li>Pix ou boleto</li>
-            <li>Envio prioritário</li>
-            <li>Suporte premium</li>
+            <li>Sem juros em produtos selecionados</li>
+            <li>Garantia estendida</li>
+            <li>Troca fácil</li>
           </ul>
-          <a href="#contato" class="btn ok">Comprar</a>
+          <a href="#contato" class="btn ok">Assinar</a>
+        </div>
+                 <div class="card plan" style="border:2px solid var(--brand)">
+          <h3>Cartão</h3>
+          <div class="price"><span class="now">até 12x</span></div>
+          <ul>
+            <li>Sem juros em produtos selecionados</li>
+            <li>Garantia estendida</li>
+            <li>Troca fácil</li>
+          </ul>
+          <a href="#contato" class="btn ok">Assinar</a>
         </div>
         <div class="card plan" style="border:2px solid var(--brand)">
           <h3>Cartão</h3>
@@ -711,16 +766,48 @@ h1, h2, h3, p.sub {
           </ul>
           <a href="#contato" class="btn ok">Assinar</a>
         </div>
-        <div class="card plan">
-          <h3>Combo</h3>
-          <div class="price"><span class="now">Economize 20%</span></div>
-          <ul>
-            <li>Monte seu kit</li>
-            <li>Frete grátis</li>
-            <li>Suporte dedicado</li>
-          </ul>
-          <a href="https://www.instagram.com/vickninfa?utm_source=qr&igsh=am1mMmdydm4xMzlv" class="btn ok">Falar com vendedor</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+<!-- TESTEMUNHOS -->
+<section id="clientes" class="section">
+  <div class="card-wrap" style="text-align:center">
+  <h2 class="pulse-neon">ᴏ ǫᴜᴇ ᴅɪᴢᴇᴍ ɴᴏꜱꜱᴏꜱ ᴄʟɪᴇɴᴛᴇꜱ</h2>
+<p class="sub pulse-neon">ᴀᴛᴇɴᴅɪᴍᴇɴᴛᴏ ᴘʀóxɪᴍᴏ ᴇ ᴇɴᴛʀᴇɢᴀ ʀáᴘɪᴅᴀ!</p>
+  
+      <div class="grid3">
+                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="row"><img class="avatar" src="assets\img\images.jpg" alt=""><strong>@andersonneiff</strong></div>
+          <figcaption>“Chegou em 2 dias e o suporte pelo WhatsApp foi perfeito.”</figcaption>
+        </figure>
+                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="row"><img class="avatar" src="assets\img\g_-294rj_400x400.jpg" alt=""><strong>Aline Medeiros</strong></div>
+          <figcaption>“Produto original e bem embalado. Recomendo muito.”</figcaption>
+        </figure>
+                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="row"><img class="avatar" src="assets\img\th.jpg" alt=""><strong>Rafael Sant'ana</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="row"><img class="avatar" src="assets\img\37264203eb15f335e7d88796b59a1df7.jpg" alt=""><strong>Clara Soares</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="row"><img class="avatar" src="assets\img\Perfil.png" alt=""><strong>Samuel Myller</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
+                <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="row"><img class="avatar" src="assets\img\2c01cd44-b8ca-42da-b65f-46c72b2ef5b0.png" alt=""><strong>Danniela Altheam</strong></div>
+          <figcaption>“Preço honesto e atendimento humano de verdade.”</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -728,49 +815,54 @@ h1, h2, h3, p.sub {
 <!-- FAQ -->
 <section id="faq" class="section">
   <div class="wrap" style="text-align:center">
-  <h2 class="pulse-neon">Perguntas Frequentes</h2>
-<p class="sub pulse-neon">Transparecia sempre</p>
+  <h2 class="pulse-neon">ᴘᴇʀɢᴜɴᴛᴀꜱ ꜰʀᴇǫᴜᴇɴᴛᴇꜱ</h2>
+<p class="sub pulse-neon">ᴛʀᴀɴꜱᴘᴀʀᴇᴄɪᴀ ꜱᴇᴍᴘʀᴇ</p>
 
     <!-- cards de perguntas -->
     <div class="faq" style="max-width:900px;margin:0 auto;text-align:left">
-      <details>
-        <summary>Como funciona a entrega?</summary>
-        <p>Nossas entregas são feitas em até 48 horas, com rastreamento em tempo real.</p>
+      <details> 
+        <figure class="card testi"> <class="plans">
+        <div class="card plan" style="border:2px solid var(--brand)">
+        <summary>ᴄᴏᴍᴏ ꜰᴜɴᴄɪᴏɴᴀ ᴀ ᴇɴᴛʀᴇɢᴀ?</summary>
+        <p>ɴᴏꜱꜱᴀꜱ ᴇɴᴛʀᴇɢᴀꜱ ꜱãᴏ ꜰᴇɪᴛᴀꜱ ᴇᴍ ᴀᴛé 𝟦𝟪 ʜᴏʀᴀꜱ, ᴄᴏᴍ ʀᴀꜱᴛʀᴇᴀᴍᴇɴᴛᴏ ᴇᴍ ᴛᴇᴍᴘᴏ ʀᴇᴀʟ.</p>
       </details>
 
       <details>
-        <summary>Posso trocar ou devolver?</summary>
-        <p>Sim, você tem até 7 dias corridos para solicitar troca ou devolução.</p>
+        <summary>ᴘᴏꜱꜱᴏ ᴛʀᴏᴄᴀʀ ᴏᴜ ᴅᴇᴠᴏʟᴠᴇʀ?</summary>
+        <p>ꜱɪᴍ, ᴠᴏᴄê ᴛᴇᴍ ᴀᴛé 𝟩 ᴅɪᴀꜱ ᴄᴏʀʀɪᴅᴏꜱ ᴘᴀʀᴀ ꜱᴏʟɪᴄɪᴛᴀʀ ᴛʀᴏᴄᴀ ᴏᴜ ᴅᴇᴠᴏʟᴜçãᴏ.</p>
       </details>
 
       <details>
-        <summary>Quais formas de pagamento aceitam?</summary>
-        <p>Aceitamos cartões de crédito, Pix e boleto bancário.</p>
+        <summary>ǫᴜᴀɪꜱ ꜰᴏʀᴍᴀꜱ ᴅᴇ ᴘᴀɢᴀᴍᴇɴᴛᴏ ᴀᴄᴇɪᴛᴀᴍ?</summary>
+        <p>ᴀᴄᴇɪᴛᴀᴍᴏꜱ ᴄᴀʀᴛõᴇꜱ ᴅᴇ ᴄʀéᴅɪᴛᴏ, ᴘɪx ᴇ ʙᴏʟᴇᴛᴏ ʙᴀɴᴄáʀɪᴏ.</p>
       </details>
 
       <details>
-        <summary>Existe suporte dedicado?</summary>
-        <p>Nosso suporte é 24/7 via chat e WhatsApp.</p>
+        <summary>ᴇxɪꜱᴛᴇ ꜱᴜᴘᴏʀᴛᴇ ᴅᴇᴅɪᴄᴀᴅᴏ?</summary>
+        <p>ɴᴏꜱꜱᴏ ꜱᴜᴘᴏʀᴛᴇ é 𝟤𝟦/𝟩 ᴠɪᴀ ᴄʜᴀᴛ ᴇ ᴡʜᴀᴛꜱᴀᴘᴘ.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- CONTATO -->
-<section id="contato" class="section">
-  <div class="wrap" style="text-align:center">
-<h2 class="pulse-neon">Fale com a gente:</h2>
-<p class="sub pulse-neon">Estamos prontos para te atender 💬</p>
+  <section id="contato" class="section">
+            </div>
+        <div class="card plan" style="border:2px solid var(--brand)">
+          <div class="card plan" style="border:2px solid var(--brand)">      
+        <div class="wrap">
+<h2 class="pulse-neon"> ꜰᴀʟᴇ ᴄᴏᴍ ᴀ ɢᴇɴᴛᴇ</h2>
+  <p class="sub pulse-neon">ᴇꜱᴛᴀᴍᴏꜱ ᴘʀᴏɴᴛᴏꜱ ᴘᴀʀᴀ ᴛᴇ ᴀᴛᴇɴᴅᴇʀ 💬</p>
 
-    <div class="card" style="max-width:600px;margin:20px auto;padding:20px;text-align:left">
+    <div class="card" style="max-width:500px;margin:20px auto;padding:20px;text-align:left">
       <form>
-        <label for="nome">Nome</label><br>
+        <label for="nome">ɴᴏᴍᴇ</label><br>
         <input type="text" id="nome" name="nome" placeholder="Seu nome" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff"><br>
 
-        <label for="email">E-mail</label><br>
+        <label for="email">ᴇ-ᴍᴀɪʟ</label><br>
         <input type="email" id="email" name="email" placeholder="Seu e-mail" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff"><br>
 
-        <label for="mensagem">Mensagem</label><br>
+        <label for="mensagem">ᴍᴇɴꜱꜱᴀɢᴇᴍ</label><br>
         <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;height:120px"></textarea><br>
 
         <button type="submit" class="btn ok" style="width:100%">Enviar</button>
@@ -781,14 +873,13 @@ h1, h2, h3, p.sub {
 
   <!-- CONTATO -->
   <section id="contato" class="section">
-    <div class="wrap card" style="padding:20px">
-<h2 class="pulse-neon">Vai ficar de fora? Entre em contato.</h2>
-<p class="sub pulse-neon">Tire dúvidas, combine o envio e receba ofertas personalizadas. 💬</p>
+           <div class="card plan" style="border:2px solid var(--brand)">
+<h2 class="pulse-neon">ᴠᴀɪ ꜰɪᴄᴀʀ ᴅᴇ ꜰᴏʀᴀ? ᴇɴᴛʀᴇ ᴇᴍ ᴄᴏɴᴛᴀᴛᴏ.</h2>
+<p class="sub pulse-neon">ᴛɪʀᴇ ᴅúᴠɪᴅᴀꜱ, ᴄᴏᴍʙɪɴᴇ ᴏ ᴇɴᴠɪᴏ ᴇ ʀᴇᴄᴇʙᴀ ᴏꜰᴇʀᴛᴀꜱ ᴘᴇʀꜱᴏɴᴀʟɪᴢᴀᴅᴀꜱ. 💬</p>
       <div class="row">
-        <a class="btn ok" href="https://wa.me/5581993523392?text=Olá%20Luzeterna,%20quero%20ajuda%20com%20minha%20compra">Abrir WhatsApp</a>
-        <a class="btn" href="mailto:contato@sua-loja.com">gangstersuporte@gmail.com</a>
+        <a class="btn ok" href="https://wa.me/5581993523392?text=Olá%20Luzeterna,%20quero%20ajuda%20com%20minha%20compra">ɢᴀɴɢꜱᴛᴇʀꜱᴜᴘᴏʀᴛᴇ@ɢᴍᴀɪʟ.ᴄᴏᴍ</a>
       </div>
-      <p class="label" style="margin-top:10px">Atendimento: seg–sáb, 24h–48h (Brasília)</p>
+      <p class="label" style="margin-top:10px">ᴀᴛᴇɴᴅɪᴍᴇɴᴛᴏ: ꜱᴇɢ–ꜱáʙ, 𝟤𝟦ʜ–𝟦𝟪ʜ (ʙʀᴀꜱíʟɪᴀ)</p>
     </div>
   </section>
 
@@ -805,7 +896,7 @@ h1, h2, h3, p.sub {
   <footer>
     <div class="wrap row" style="justify-content:space-between;align-items:center">
       <span>© <span id="year"></span> 𝕭𝖊𝖒 𝕲𝖆𝖓𝖌𝖘𝖙𝖊𝖗 - 𝕾𝖙𝖔𝖗𝖊 ™ • CNPJ 33.596.568/0001-76</span>
-      <span class="label">Feito com 💙 por Lua & Vida</span>
+      <span class="label">ꜰᴇɪᴛᴏ ᴄᴏᴍ 💙 ᴘᴏʀ #ᴍᴀɢɴᴇᴛᴏ ʟɪꜰᴇꜱᴛʏʟᴇ</span>
     </div>
   </footer>
 
