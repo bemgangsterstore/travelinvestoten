@@ -148,15 +148,13 @@
 <body>
   <div class="circuit"></div>
   <div class="container">
-    <h1>𝕭𝖊𝖒-𝖛𝖎𝖓𝖉𝖔 à 𝕺𝖙𝖊𝖓 - 𝕾𝖙𝖔𝖗𝖊 𝕺𝖋𝖎𝖈𝖎𝖆𝖑 ™</h1>
+    <h1>𝕭𝖊𝖒-𝖛𝖎𝖓𝖉𝖔 à 𝕺𝖙𝖊𝖓 - 𝕾𝖙𝖔𝖗𝖊 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™</h1>
     <p>𝕰𝖓𝖙𝖗𝖊 𝖆𝖘 𝕾𝖔𝖒𝖇𝖗𝖆𝖘 𝕹𝖆𝖘𝖈𝖊 𝖔 𝕰𝖘𝖙𝖎𝖑𝖔 𝖊 𝖆 𝕰𝖑𝖊𝖌𝖆𝖓𝖈𝖆 𝕾𝖔𝖒𝖇𝖗𝖎𝖆.</p>
-    <a href="bemgangsterv2.html" class="button">Entrar na Loja</a>
+    <a href="http://127.0.0.1:5500/bemgangsterstore.html" class="button">Entrar na Loja</a>
   </div>
-  <footer>© 𝟐𝟎𝟐𝟓 𝕺𝖙𝖊𝖓 - 𝕾𝖙𝖔𝖗𝖊 𝕺𝖋𝖎𝖈𝖎𝖆𝖑 ™  ✈️</footer>
+  <footer>© 𝟐𝟎𝟐𝟓 𝕺𝖙𝖊𝖓 - 𝕾𝖙𝖔𝖗𝖊 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™  ✈️</footer>
 
-  <audio autoplay loop>
-    <source src="assets/musica.mp3" type="audio/mpeg">
-  </audio><!-- 🎵 Player estilizado -->
+<!-- 🎵 Player estilizado -->
 <div id="audio-container">
   <audio id="bg-audio" autoplay loop>
     <source src="musicevilgirl.mp3" type="audio/mp3">
@@ -169,30 +167,68 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid #ff00ff;
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
     padding: 10px 15px;
-    box-shadow: 0 0 15px #ff00ff;
     z-index: 1000;
+    box-shadow: 
+      0 0 12px rgba(255, 0, 128, 0.8),
+      0 0 20px rgba(0, 225, 255, 0.7),
+      0 0 40px rgba(255, 140, 0, 0.6);
+    animation: pulseGlow 2.5s infinite alternate;
   }
 
   #play-pause {
-    background: linear-gradient(90deg, #ff00ff, #8000ff);
+    background: linear-gradient(90deg, #ff0080, #ff8c00, #00e1ff, #ff0080);
+    background-size: 300% auto;
     color: #fff;
     border: none;
-    padding: 8px 15px;
-    font-size: 14px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
     font-family: 'UnifrakturCook', cursive;
-    text-shadow: 0 0 5px #fff;
+    text-shadow: 0 0 8px #fff, 0 0 12px #ff00ff;
+    box-shadow: 
+      0 0 12px rgba(255, 0, 128, 0.9),
+      0 0 25px rgba(0, 225, 255, 0.8),
+      0 0 35px rgba(255, 140, 0, 0.7);
+    animation: rgbGlow 4s linear infinite, pulseGlow 2.5s infinite alternate;
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   }
 
   #play-pause:hover {
-    box-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff;
-    transform: scale(1.1);
-    transition: 0.2s;
+    transform: scale(1.12);
+    box-shadow: 
+      0 0 20px rgba(255, 0, 128, 1),
+      0 0 40px rgba(0, 225, 255, 1),
+      0 0 60px rgba(255, 140, 0, 1);
+  }
+
+  /* Glow pulsante */
+  @keyframes pulseGlow {
+    from { box-shadow: 0 0 10px #ff00de, 0 0 20px #ff0080; }
+    to   { box-shadow: 0 0 20px #00e1ff, 0 0 40px #ff8c00; }
+  }
+
+  /* Gradiente RGB em movimento */
+  @keyframes rgbGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Rodapé igual estilo neon */
+  footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 12px;
+    color: #fff;
+    font-family: 'UnifrakturCook', cursive;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #00e1ff, 0 0 15px #ff8c00;
+    font-size: 14px;
+    animation: pulseGlow 3s infinite alternate;
   }
 </style>
 
@@ -213,6 +249,8 @@
     }
   });
 </script>
+
+
 
 </body>
 </html>
